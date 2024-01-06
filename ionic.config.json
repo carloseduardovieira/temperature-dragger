@@ -1,0 +1,7 @@
+{
+  "name": "temperature-dragger",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
