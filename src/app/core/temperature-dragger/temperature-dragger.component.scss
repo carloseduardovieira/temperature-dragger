@@ -1,0 +1,13 @@
+.valve {
+  border: 7px solid var(--ion-color-medium-tint);
+  border-radius: 50%;
+  box-shadow: -4px -4px 10px rgba(177, 191, 182, 0.5),
+    inset 4px 4px 10px rgba(188, 188, 188, 0.5),
+    inset -4px -4px 10px rgba(177, 191, 182, 0.5),
+    4px 4px 10px rgba(188, 188, 188, 0.3);
+  height: 30rem;
+  width: 30rem;
+  margin: 50px auto;
+  padding: 2rem;
+  position: relative;
+}
