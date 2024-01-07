@@ -1,0 +1,96 @@
+<div class="svg-container">
+  <svg #svgRoot version="1.1" [attr.viewBox]="styles.viewBox">
+    <!-- Valve -->
+    <defs>
+      <filter
+        [attr.id]="'blurFilter' + svgControlId"
+        x="0"
+        y="0"
+        width="100%"
+        height="100%"
+      >
+        <feGaussianBlur
+          in="SourceGraphic"
+          [attr.stdDeviation]="styles.blurRadius"
+        />
+        <feComponentTransfer>
+          <feFuncA type="discrete" tableValues="1 1" />
+        </feComponentTransfer>
+      </filter>
+
+      <clipPath [attr.id]="'sliderClip' + svgControlId">
+        <path [attr.d]="styles.clipPathStr" stroke="black"></path>
+      </clipPath>
+    </defs>
+
+    <g [attr.transform]="styles.arcTranslateStr">
+      <g class="toClip" [attr.clip-path]="getUrlPath('#sliderClip')">
+        <g class="toFilter" [attr.filter]="getUrlPath('#blurFilter')">
+          <path
+            [attr.d]="arc.d"
+            [attr.fill]="off ? styles.nonSelectedArc.color : arc.color"
+            *ngFor="let arc of styles.gradArcs"
+          ></path>
+        </g>
+
+        <!-- ngFor is a quirk fix for webkit rendering issues -->
+        <path
+          [attr.d]="styles.nonSelectedArc.d"
+          [attr.fill]="styles.nonSelectedArc.color"
+          *ngFor="let number of [0, 1, 2, 3, 4, 5]"
+        ></path>
+      </g>
+
+      <!-- Valve Knob -->
+      <circle
+        [attr.fill]="off ? 'none' : thumbBg"
+        [attr.cx]="styles.thumbPosition.x"
+        [attr.cy]="styles.thumbPosition.y"
+        [attr.r]="pinRadius"
+        [attr.stroke-width]="thumbBorder / scaleFactor"
+        [attr.stroke]="off ? 'none' : thumbBorderColor"
+      ></circle>
+    </g>
+  </svg>
+</div>
+
+<div class="temperature-bg">
+  <div class="slider-value-container" [ngClass]="{ off: off }">
+    <div class="value temperature">
+      <span>{{ off ? "--" : this.value }}</span>
+    </div>
+    <div class="desc">Celsius</div>
+  </div>
+</div>
+
+<ion-button
+  class="power-bg"
+  [ngStyle]="{
+    color: !off ? 'var(--ion-color-light)' : 'var(--ion-color-medium)',
+    '--background': !off ? fillColors : 'var(--ion-color-light)'
+  }"
+  (click)="switchPower()"
+>
+  <ion-icon icon="home"></ion-icon>
+</ion-button>
+
+<div class="knob__area">
+  <div class="knob__area--range">
+    <ion-range
+      [disabled]="off"
+      class="ion-margin"
+      [min]="min"
+      [max]="max"
+      [value]="this.value"
+      [ngStyle]="{
+        '--knob-background': !off ? thumbBg : '',
+        '--bar-background-active': fillColors
+      }"
+      aria-label="Temperature"
+      (ionInput)="valveChanges($event)"
+    >
+      <ion-icon slot="start" name="snow-outline"></ion-icon>
+      <ion-icon slot="end" name="sunny-outline"></ion-icon>
+    </ion-range>
+  </div>
+</div>

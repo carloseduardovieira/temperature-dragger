@@ -5,7 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { TemperatureDraggerComponent } from '@core';
+import {
+  CustomTemperatureDraggerComponent,
+  TemperatureDraggerComponent,
+} from '@core';
 
 @NgModule({
   declarations: [HomePage],
@@ -15,6 +18,7 @@ import { TemperatureDraggerComponent } from '@core';
     IonicModule,
     HomePageRoutingModule,
     TemperatureDraggerComponent,
+    CustomTemperatureDraggerComponent,
   ],
 })
 export class HomePageModule {}

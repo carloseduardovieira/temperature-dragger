@@ -1,9 +1,41 @@
-<ion-content>
-  <div class="ion-margin-top">
-    <app-temperature-dragger
-      [min]="35"
-      [max]="65"
-      [current]="22"
-    ></app-temperature-dragger>
-  </div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Temperature dragger</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-segment [value]="valveSelected" (ionChange)="hasSegmentChanges($event)">
+    <ion-segment-button [value]="valveOptions.DEFAULT">
+      <ion-label>Default</ion-label>
+    </ion-segment-button>
+    <ion-segment-button [value]="valveOptions.CUSTOM">
+      <ion-label>Custom</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <app-temperature-dragger
+    *ngIf="valveSelected === valveOptions.DEFAULT"
+    [min]="35"
+    [max]="65"
+    [current]="22"
+  ></app-temperature-dragger>
+
+  <app-custom-temperature-dragger
+    [min]="16"
+    [max]="35"
+    [value]="currentTemperature"
+    [fillColors]="'var(--ion-color-secondary)'"
+    [disableArcColor]="'#f5f5f5'"
+    [thumbBg]="'var(--ion-color-secondary)'"
+    [thumbBorderColor]="'var(--ion-color-secondary-shade)'"
+    [bottomAngle]="90"
+    [arcThickness]="20"
+    [thumbRadius]="10"
+    [thumbBorder]="2"
+    (valueChange)="hasTemperatureChanges($any($event))"
+    (power)="isTemperatureOff = !$event"
+    *ngIf="valveSelected === valveOptions.CUSTOM"
+  >
+  </app-custom-temperature-dragger>
 </ion-content>
