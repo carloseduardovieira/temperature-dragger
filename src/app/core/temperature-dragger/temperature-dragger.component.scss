@@ -1,55 +1,64 @@
-.valve,
-.temperature-display {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .valve {
-  &--min-marker {
-    background-color: lightblue;
-  }
-
-  &--max-marker {
-    background-color: tomato;
-  }
-
-  &--min-marker,
-  &--max-marker {
-    height: 3px;
-    left: 50%;
-    position: absolute;
-    top: 6em;
-    transform-origin: 0;
-    width: 6em;
-    z-index: 0;
+  &__circle,
+  &__circle--face {
+    height: 10em;
+    position: relative;
+    width: 10em;
   }
 
   &__circle {
-    background-color: var(--ion-color-light);
-    border-radius: 50%;
-    border: 1px solid var(--ion-color-dark);
-    height: 10em;
-    width: 10em;
+    left: 50%;
+    transform: translate(-50%, 0%);
     z-index: 0;
+
+    &--face {
+      background: #f5f6f9;
+      border: 1px solid var(--ion-color-dark);
+      border-radius: 50%;
+      top: -2%;
+      z-index: 1;
+    }
+
+    &--min-marker {
+      background-color: lightblue;
+    }
+
+    &--max-marker {
+      background-color: tomato;
+    }
+
+    &--min-marker,
+    &--max-marker,
+    &--temperature-marker {
+      height: 3px;
+      left: 50%;
+      top: 50%;
+      transform-origin: 0;
+    }
+
+    &--min-marker,
+    &--max-marker {
+      position: absolute;
+      width: 60%;
+      z-index: 0;
+    }
 
     &--temperature-marker {
       background-color: var(--ion-color-dark);
-      height: 3px;
-      left: 50%;
-      overflow: hidden;
-      position: absolute;
-      top: 6em;
-      transform-origin: 0;
-      width: 5em;
-      z-index: 1;
+      position: relative;
+      width: 50%;
+      z-index: 2;
     }
   }
 }
 
 .temperature-display {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin-top: 20px;
+
   &--label {
     font-weight: bold;
   }

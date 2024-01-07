@@ -12,11 +12,12 @@ import { IonicModule } from '@ionic/angular';
 @Component({
   selector: 'app-temperature-dragger',
   template: `
-    <div class="valve">
-      <div class="valve--min-marker" #minMarker></div>
-      <div class="valve--max-marker" #maxMarker></div>
+    <div class="valve ion-margin-top">
       <div class="valve__circle">
+        <div class="valve__circle--min-marker" #minMarker></div>
+        <div class="valve__circle--max-marker" #maxMarker></div>
         <div class="valve__circle--temperature-marker" #temperatureMarker></div>
+        <div class="valve__circle--face"></div>
       </div>
     </div>
 

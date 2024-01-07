@@ -1,9 +1,23 @@
-<ion-content>
-  <div class="ion-margin-top">
-    <app-temperature-dragger
-      [min]="35"
-      [max]="65"
-      [current]="22"
-    ></app-temperature-dragger>
-  </div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Temperature dragger</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-segment value="default" (ionChange)="hasSegmentChanges($event)">
+    <ion-segment-button value="default">
+      <ion-label>Default</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="segment">
+      <ion-label>Custom</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <app-temperature-dragger
+    *ngIf="valveSelected === valveOptions.DEFAULT"
+    [min]="35"
+    [max]="65"
+    [current]="22"
+  ></app-temperature-dragger>
 </ion-content>
