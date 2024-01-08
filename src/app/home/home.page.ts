@@ -24,7 +24,7 @@ enum VALVE_OPTIONS {
 })
 export class HomePage {
   public valveOptions = VALVE_OPTIONS;
-  public valveSelected: VALVE_OPTIONS = VALVE_OPTIONS.CUSTOM;
+  public valveSelected: VALVE_OPTIONS = VALVE_OPTIONS.DEFAULT;
   public currentTemperature = 22;
   public isTemperatureOff: boolean = false;
 
