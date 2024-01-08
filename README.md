@@ -21,7 +21,7 @@
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer.
 
-You also need to have the ionic CLI
+You also need to have the [ionic CLI](https://ionicframework.com/docs/intro/cli)
 
 Install the Ionic CLI with npm:
 
