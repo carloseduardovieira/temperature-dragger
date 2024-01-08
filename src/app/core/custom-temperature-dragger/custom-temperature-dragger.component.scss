@@ -6,6 +6,11 @@
   transform: translate(-50%, 0);
   width: 20em;
   z-index: 2;
+
+  svg {
+    z-index: 3;
+    position: relative;
+  }
 }
 
 .temperature-bg,
@@ -21,10 +26,11 @@
 
 .temperature-bg {
   border: 1px solid var(--ion-color-light);
-  height: 18em;
+  height: 18.4em;
   position: absolute;
-  transform: translate(-50%, 33%);
-  width: 18em;
+  top: 0;
+  transform: translate(-50%, 12%);
+  width: 18.4em;
   z-index: 1;
 }
 

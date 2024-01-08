@@ -38,7 +38,6 @@ export class CustomTemperatureDraggerComponent implements AfterViewInit {
 
   @Input() fillColors: string = 'var(--ion-color-primary)';
   @Input() disableArcColor: any;
-  @Input() bottomAngle: number = 90;
   @Input() arcThickness: number = 18; // CSS pixels
   @Input() thumbRadius: number = 16; // CSS pixels
   @Input() thumbBorder: number = 3;
@@ -54,6 +53,7 @@ export class CustomTemperatureDraggerComponent implements AfterViewInit {
 
   public oldValue: number;
   public position: number = 0;
+  public bottomAngle: number = 90;
   public off: boolean = false;
   public svgControlId: number = uniqueId++;
   public scaleFactor = 1;

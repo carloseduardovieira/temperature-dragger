@@ -52,14 +52,14 @@
       ></circle>
     </g>
   </svg>
-</div>
 
-<div class="temperature-bg">
-  <div class="slider-value-container" [ngClass]="{ off: off }">
-    <div class="value temperature">
-      <span>{{ off ? "--" : this.value }}</span>
+  <div class="temperature-bg">
+    <div class="slider-value-container" [ngClass]="{ off: off }">
+      <div class="value temperature">
+        <span>{{ off ? "--" : this.value }}</span>
+      </div>
+      <div class="desc">Celsius</div>
     </div>
-    <div class="desc">Celsius</div>
   </div>
 </div>
 

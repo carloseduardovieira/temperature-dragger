@@ -9,6 +9,11 @@ enum VALVE_OPTIONS {
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styles: `
+
+  ion-segment {
+    margin-bottom: 3rem;
+  }
+
   app-custom-temperature-dragger {
     margin-top: -1.5rem;
     width: 100%;
