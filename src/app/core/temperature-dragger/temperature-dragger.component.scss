@@ -1,9 +1,9 @@
 .valve {
   &__circle,
   &__circle--face {
-    height: 10em;
+    height: 18em;
     position: relative;
-    width: 10em;
+    width: 18em;
   }
 
   &__circle {
@@ -13,7 +13,7 @@
 
     &--face {
       background: #f5f6f9;
-      border: 1px solid var(--ion-color-dark);
+      border: 0.6em solid var(--ion-color-dark);
       border-radius: 50%;
       top: -2%;
       z-index: 1;
@@ -30,7 +30,8 @@
     &--min-marker,
     &--max-marker,
     &--temperature-marker {
-      height: 3px;
+      border-radius: 10px;
+      height: 0.6em;
       left: 50%;
       top: 50%;
       transform-origin: 0;
@@ -56,6 +57,7 @@
   align-items: center;
   display: flex;
   flex-direction: row;
+  font-size: 3em;
   justify-content: center;
   margin-top: 20px;
 
