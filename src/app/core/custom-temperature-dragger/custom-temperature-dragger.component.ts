@@ -92,6 +92,10 @@ export class CustomTemperatureDraggerComponent implements AfterViewInit {
       this.value = this.min;
     }
 
+    if (this.max < this.value) {
+      this.value = this.max;
+    }
+
     setTimeout(() => {
       this.recalculateValvePosition(this.value);
     });
